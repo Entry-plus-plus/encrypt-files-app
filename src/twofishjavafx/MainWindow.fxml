@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="myPane" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="twofishjavafx.MainController">
+   <children>
+      <TabPane fx:id="myTabPane" prefHeight="430.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="encryptTab" text="Szyfrowanie">
+               <content>
+              <AnchorPane fx:id="anchorPaneEncryptMode" prefHeight="450.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="buttonChooseFileEncryptMode" layoutX="450.0" layoutY="27.0" mnemonicParsing="false" onAction="#encryptModeChooseInputFile" prefHeight="25.0" prefWidth="121.0" text="Wybierz plik" />
+                        <Button fx:id="buttonOutputFileEncryptMode" layoutX="450.0" layoutY="69.0" mnemonicParsing="false" onAction="#encryptModeChooseOutputFile" prefHeight="25.0" prefWidth="121.0" text="Wybierz plik" />
+                        <TextField fx:id="textFieldChooseInputFileEncryptMode" layoutX="130.0" layoutY="27.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="textFieldChooseOutputFileEncryptMode" layoutX="130.0" layoutY="69.0" prefHeight="25.0" prefWidth="300.0" />
+                        <ProgressBar fx:id="progressBarEncryptMode" layoutX="55.0" layoutY="348.0" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
+                        <Button fx:id="buttonEncrypt" layoutX="410.0" layoutY="340.0" mnemonicParsing="false" onAction="#encryptFile" prefHeight="32.0" prefWidth="150.0" text="Szyfruj" />
+                        <Label fx:id="labelReceiverEncryptMode" layoutX="55.0" layoutY="128.0" prefHeight="25.0" prefWidth="56.0" text="Odbiorcy:" />
+                        <Button fx:id="buttonAddReceiver" layoutX="30.0" layoutY="153.0" mnemonicParsing="false" onAction="#encryptModeAddReceiver" text="+" />
+                        <Button fx:id="buttonDelReceiver" layoutX="30.0" layoutY="178.0" mnemonicParsing="false" onAction="#encryptModeDeleteReceiver" prefHeight="25.0" prefWidth="25.0" text="-" />
+                        <Label fx:id="labelEncryptMode" layoutX="454.0" layoutY="153.0" prefHeight="25.0" prefWidth="30.0" text="Tryb:" />
+                        <ComboBox fx:id="comboBoxEncryptMode" layoutX="486.0" layoutY="153.0" onAction="#chooseEncryptFileMode" prefHeight="25.0" prefWidth="85.0" />
+                        <Label fx:id="labelLenghtKey" layoutX="398.0" layoutY="209.0" prefHeight="25.0" prefWidth="88.0" text="Długość klucza:" />
+                        <ComboBox fx:id="comboBoxLenghtKey" layoutX="486.0" layoutY="209.0" prefHeight="25.0" prefWidth="85.0" />
+                        <ComboBox fx:id="comboBoxLenghtSubBlock" layoutX="486.0" layoutY="273.0" prefHeight="25.0" prefWidth="85.0" />
+                        <Label fx:id="labelLenghtSubBlock" layoutX="379.0" layoutY="273.0" prefHeight="25.0" prefWidth="108.0" text="Długość podbloku:" />
+                        <Label fx:id="labelFileInputEncryptMode" layoutX="40.0" layoutY="27.0" prefHeight="25.0" prefWidth="82.0" text="Plik wejściowy:" />
+                        <Label fx:id="labelFileOutputEncryptMode" layoutX="40.0" layoutY="69.0" prefHeight="25.0" prefWidth="82.0" text="Plik wyjściowy:" />
+                        <ListView fx:id="receiverListViewEncryptMode" layoutX="55.0" layoutY="153.0" prefHeight="150.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="decryptTab" text="Odszyfrowywanie">
+               <content>
+                  <AnchorPane fx:id="anchorPaneDecryptMode" prefHeight="500.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="buttonChooseInputFileDecryptMode" layoutX="450.0" layoutY="27.0" mnemonicParsing="false" onAction="#decryptModeChooseInputFile" prefHeight="25.0" prefWidth="121.0" text="Wybierz plik" />
+                        <Button fx:id="buttonOutputFileDecryptMode" layoutX="450.0" layoutY="69.0" mnemonicParsing="false" onAction="#decryptModeChooseOutputFile" prefHeight="25.0" prefWidth="121.0" text="Wybierz plik" />
+                        <TextField fx:id="textFiledChooseInputFileDecryptMode" layoutX="130.0" layoutY="27.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="textFiledChooseOutputFileDecryptMode" layoutX="130.0" layoutY="69.0" prefHeight="25.0" prefWidth="300.0" />
+                        <ProgressBar fx:id="progressBarDecryptMode" layoutX="55.0" layoutY="348.0" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
+                        <Button fx:id="buttonDecrypt" layoutX="410.0" layoutY="340.0" mnemonicParsing="false" onAction="#decryptFile" prefHeight="32.0" prefWidth="150.0" text="Odszyfruj" />
+                        <Label fx:id="labelPassword" layoutX="40.0" layoutY="294.0" prefHeight="25.0" prefWidth="56.0" text="Hasło:" />
+                        <PasswordField fx:id="passwordField" layoutX="96.0" layoutY="294.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="passwordText" layoutX="96.0" layoutY="294.0" prefHeight="25.0" prefWidth="300.0" />
+                        <Label fx:id="labelFileInputDecryptMode" layoutX="40.0" layoutY="27.0" prefHeight="25.0" prefWidth="82.0" text="Plik wejściowy:" />
+                        <Label fx:id="labelFileOutputDecryptMode" layoutX="40.0" layoutY="69.0" prefHeight="25.0" prefWidth="82.0" text="Plik wyjściowy:" />
+                        <CheckBox fx:id="checkBoxShowPassword" layoutX="418.0" layoutY="298.0" mnemonicParsing="false" onAction="#showPassword" text="Pokaż hasło" />
+                        <Label fx:id="labelReceiverDecryptMode" layoutX="40.0" layoutY="126.0" prefHeight="25.0" prefWidth="56.0" text="Odbiorcy:" />
+                        <ListView fx:id="receiverListViewDecryptMode" layoutX="96.0" layoutY="126.0" prefHeight="150.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
